@@ -1,0 +1,126 @@
+import os
+
+jam=11
+a=["07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16;00","17:00"]
+b=['-','-','-','Sistem Digital','Sistem Digital','Sistem Digital','-','P.S.KamSiber','P.S.Kamsiber','P.S.KamSiber',"-"]
+c=['-','-','-','-','-','P.B.Indonesia','P.B.Indonesia','P.B.indonesia','-','D.Thinking','D.Thinking','D.Thinking']
+d=['-','Litdas','Litdas','PemDas','PemDas','PemDas','Pemdas','-','-','-','-','-']
+e=['-','MatDis','MatDis','MatDis','-','IMK','IMK','IMK','-','P.PemDas','P.Pemdas','P.PemDas']
+f=['K.KamSiber','K.KamSiber','K.KamSiber','-','-','-','-','-','-','-','-','-','-','-','-']
+
+def home():
+    print('-'*40)
+    print("\tPilihan\t")
+    print('-'*40)
+    print('Kode\tPilihan')
+    print('1.\tLihat Semua Jadwal')
+    print('2.\tLihat Secara Detail')
+    print('3.\tExit')
+    print('-'*40)
+
+
+
+def schedule_table_header():
+    print('''-----------------------------------------------------------------------------------------------------------------------
+|     Jam ke-    |     Pukul     |     Senin      |    Selasa      |      Rabu      |     Kamis      |     Jum'at     | 
+-----------------------------------------------------------------------------------------------------------------------''')
+
+def schedule_rows():
+     for x in range(jam) :
+        kolom1 = str(x+1)
+        kolom2 = str(a[x])
+        kolom3 = str(b[x])
+        kolom4 = str(c[x])
+        kolom5 = str(d[x])
+        kolom6 = str(e[x])
+        kolom7 = str(f[x])
+        print("| " + kolom1 + (15-len(kolom1))*" "
+          +("| " + kolom2 + (14-len(kolom2))*" ")
+          +("| " + kolom3 + (15-len(kolom3))*" ")
+          +("| " + kolom4 + (15-len(kolom4))*" ")
+          +("| " + kolom5 + (15-len(kolom5))*" ")
+          +("| " + kolom6 + (15-len(kolom6))*" ")
+          +("| " + kolom7 + (15-len(kolom7))*" "+"|"))
+        print("-----------------------------------------------------------------------------------------------------------------------")
+
+def pilihan1():
+    print('                             JADWAL PELAJARAN PRODI TEKNOLOGI INFORMASI TAHUN AJARAN 2022                               ')
+    schedule_table_header()
+    schedule_rows()
+
+def pilihan2(day):
+    schedule = {
+      "Senin": ['Sistem Digital\nDosen : Adkhan Sholeh, S.Si., M.Cs\nPukul : 08:00-12:50\nRuang : Kelas 2e', 'Praktikum Keamanan Siber\nDosen : Dedy Haryadi, S.T., M.Kom\nPukul : 14:00-15:50\nRuang : Lab 3a'],
+      "Selasa": ['Bahasa Indonesia\nDosen : Luluk Priyanti, S.Pd.,M.Hum\nPukul : 12:00-13:50\nRuang : Kelas 2b', 'Pemikiran Desain\nDosen : Arif Himawan, S.Kom.,M.M.,M.Eng\nPukul : 15:00-16:50\nRuang : Kelas 2d'],
+      "Rabu": ['Literasi Dasar\nDosen : Adkhan Sholeh, S.Si.,M.Cs\nPukul : 08:00-09:50\nRuang : Kelas 2a', 'Pemprograman Dasar\nDosen : Ulfi Saidata Aesyi, S.Kom.,M.Cs\nPukul : 10:00-11:50\nRuang : Kelas 2g' ],
+      "Kamis": ['Matematika Diskrit\nDosen : Arief Ikhwan Wicaksono, S.Kom.,M.Cs\nPukul : 08:00-09:50\nRuang : Kelas 2e', 'Interaksi Manusia dan Komputer\nDosen : Rama Sahtyawan, S.T.,M.Cs\nPukul : 11:00-13:50\nRuang : Kelas 2f','Praktikum Pemprograman Dasar\nDosen : Ulfi Saidata Aesyi, S.Kom.,M.Cs\nPukul : 15:00-16:50\nRuang : Lab 3b'],
+      "Jumat": ['Kewaspadaan Keamanan Siber\nDosen : Alfirna Rizqi Lahitani, S.Kom.,M.Eng\nPukul : 15:00-16:50\nRuang : Kelas 2g'],
+  }
+  
+    if day in schedule:
+        print(f"Jadwal hari {day}:")
+    for subject in schedule[day]:
+        print(f"- {subject}")
+
+def main():
+  schedule = {
+     "Senin": ['Sistem Digital\nDosen : Adkhan Sholeh, S.Si., M.Cs\nPukul : 10:00-12:50\nRuang : Kelas 2e', 'Praktikum Keamanan Siber\nDosen : Dedy Haryadi, S.T., M.Kom\nPukul : 14:00-15:50\nRuang : Lab 3a'],
+      "Selasa": ['Bahasa Indonesia\nDosen : Luluk Priyanti, S.Pd.,M.Hum\nPukul : 12:00-13:50\nRuang : Kelas 2b', 'Pemikiran Desain\nDosen : Arif Himawan, S.Kom.,M.M.,M.Eng\nPukul : 15:00-16:50\nRuang : Kelas 2d'],
+      "Rabu": ['Literasi Dasar\nDosen : Adkhan Sholeh, S.Si.,M.Cs\nPukul : 08:00-09:50\nRuang : Kelas 2a', 'Pemprograman Dasar\nDosen : Ulfi Saidata Aesyi, S.Kom.,M.Cs\nPukul : 10:00-11:50\nRuang : Kelas 2g' ],
+      "Kamis": ['Matematika Diskrit\nDosen : Arief Ikhwan Wicaksono, S.Kom.,M.Cs\nPukul : 08:00-09:50\nRuang : Kelas 2e', 'Interaksi Manusia dan Komputer\nDosen : Rama Sahtyawan, S.T.,M.Cs\nPukul : 11:00-13:50\nRuang : Kelas 2f','Praktikum Pemprograman Dasar\nDosen : Ulfi Saidata Aesyi, S.Kom.,M.Cs\nPukul : 15:00-16:50\nRuang : Lab 3b'],
+      "Jumat": ['Kewaspadaan Keamanan Siber\nDosen : Alfirna Rizqi Lahitani, S.Kom.,M.Eng\nPukul : 15:00-16:50\nRuang : Kelas 2g'],
+  }
+
+  while True:
+    print('-'*40)
+    print("Pilih jadwal yang ingin dilihat:")
+    print('-'*40)
+    print("1. Senin")
+    print("2. Selasa")
+    print("3. Rabu")
+    print("4. Kamis")
+    print("5. Jumat")
+    print("6. Keluar")
+    print('-'*40)
+    pilihan = input("Masukkan pilihan: ")
+
+    if pilihan == "1":
+      pilihan2("Senin")
+    elif pilihan == "2":
+      pilihan2("Selasa")
+    elif pilihan == "3":
+      pilihan2("Rabu")
+    elif pilihan == "4":
+      pilihan2("Kamis")
+    elif pilihan == "5":
+      pilihan2("Jumat")
+    elif pilihan == "6":
+      print("Keluar dari program.")
+      break
+    else:
+      print("Pilihan tidak valid. Silakan coba lagi.")
+    another = input("Ingin melihat jadwal lain? (y/t) ")
+    if another.lower() == "t":
+      print("Keluar") 
+      break
+ 
+def display():
+  while True:
+    home()
+    pilihan = input("Masukkan Pilihan anda : ")
+    if pilihan == "1":
+      pilihan1()
+      lanjut = input("Apakah Anda ingin melanjutkan? (y/t) ")
+      os.system('cls')
+      if lanjut != "y":
+        break
+    elif pilihan == "2":
+        os.system('cls')
+        main()
+    elif pilihan == "3":
+      exit()
+    else: 
+      print("Pilihan tidak tersendiahttps://youtu.be/QzGI9z8CYB0")
+
+
+display()
